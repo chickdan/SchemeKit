@@ -11,6 +11,7 @@ internal struct SocialConstants {
 }
 
 internal struct SocialURLSchemes {
+    static let detectorPath = "://open"
     static let facebook = "fb"
     static let instagram = "instagram"
 }
