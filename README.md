@@ -31,15 +31,14 @@ Once you know if the browser is installed, an updated url can be generated for t
 ```swift
 let url = "https://www.google.com"
 let chosenBrowser = BrowserNames.chrome
-let installed = BrowserScheme.isBrowserInstalled(browserName: chosenBrowser)
 
-if installed {
+if BrowserScheme.isBrowserInstalled(browserName: chosenBrowser) {
     //results in a URL object with the path of: "googlechromes://www.google.com"
     let chromeUrl = BrowserScheme.getUrlForBrowser(urlToConvert: url, browserName: chosenBrowser)
 }
 ```
 
-NOTE: Be sure to add schemes you plan to use in your app's `info.plist`
+**NOTE:** Be sure to add schemes you plan to use in your app's `info.plist`
 ```plist
 <key>LSApplicationQueriesSchemes</key>
 <array>
