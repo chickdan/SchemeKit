@@ -2,7 +2,7 @@
 SchemeKit is a simple API to provide url query schemes for launching third party applications.
 
 [![GitHub License](http://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)](https://github.com/chickdan/SchemeKit/blob/master/LICENSE)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)  
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Language](https://img.shields.io/badge/Language-Swift_4-f48041.svg?style=flat)](https://developer.apple.com/swift)
 [![Platform](https://img.shields.io/badge/Platform-iOS%2011-blue.svg?style=flat)](https://developer.apple.com/ios)
 
