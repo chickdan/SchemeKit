@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD3C259520DDC814001D9A6A /* EntertainmentScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C259420DDC814001D9A6A /* EntertainmentScheme.swift */; };
 		BD824A6920DB27920093E14F /* SchemeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = BD824A5B20DB27920093E14F /* SchemeKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD824A7320DB28210093E14F /* BrowserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD824A7220DB28210093E14F /* BrowserConstants.swift */; };
 		BD824A7520DB29360093E14F /* BrowserScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD824A7420DB29360093E14F /* BrowserScheme.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD3C259420DDC814001D9A6A /* EntertainmentScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentScheme.swift; sourceTree = "<group>"; };
 		BD824A5820DB27910093E14F /* SchemeKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SchemeKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD824A5B20DB27920093E14F /* SchemeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchemeKit.h; sourceTree = "<group>"; };
 		BD824A5C20DB27920093E14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				BD92882B20DC138500BFD821 /* EntertainmentConstants.swift */,
+				BD3C259420DDC814001D9A6A /* EntertainmentScheme.swift */,
 			);
 			path = Entertainment;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD92882C20DC138500BFD821 /* EntertainmentConstants.swift in Sources */,
+				BD3C259520DDC814001D9A6A /* EntertainmentScheme.swift in Sources */,
 				BD824A7320DB28210093E14F /* BrowserConstants.swift in Sources */,
 				BD92882920DC067600BFD821 /* SocialScheme.swift in Sources */,
 				BD824A7520DB29360093E14F /* BrowserScheme.swift in Sources */,
