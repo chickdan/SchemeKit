@@ -32,13 +32,18 @@ struct EntertainmentScheme {
         return installedEntertainmentApps
     }
     
+    public static func listOfEntertainmentAppsInstalled() -> [EntertainmentNames] {
+        var installedEntertainmentApps: [EntertainmentNames] = []
+        EntertainmentNames.allCases.forEach { (name) in
+            if isEntertainmentAppInstalled(entertainmentAppName: name) {
+                installedEntertainmentApps.append(name)
+            }
+        }
+        return installedEntertainmentApps
+    }
+    
     public static func getUrlForEntertainmentApp(urlToConvert: String, entertainmentAppName: EntertainmentNames) -> URL {
         let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: EntertainmentConstants.EntertainmentSchemeList[entertainmentAppName]!)
-        var finalUrl: URL!
-        DispatchQueue.global(qos: .background).async {
-            finalUrl = URL(string: convertedUrl)!
-        }
-        
-        return finalUrl
+        return URL(string: convertedUrl)!
     }
 }

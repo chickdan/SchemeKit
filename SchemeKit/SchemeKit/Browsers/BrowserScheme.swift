@@ -39,13 +39,18 @@ public struct BrowserScheme {
         return installedBrowsers
     }
     
+    public static func listOfBrowsersInstalled() -> [BrowserNames] {
+        var installedBrowsers: [BrowserNames] = []
+        BrowserNames.allCases.forEach { (name) in
+            if isBrowserInstalled(browserName: name) {
+                installedBrowsers.append(name)
+            }
+        }
+        return installedBrowsers
+    }
+    
     public static func getUrlForBrowser(urlToConvert: String, browserName: BrowserNames) -> URL {
         let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: BrowserConstants.BrowserSchemeList[browserName]!)
-        var finalUrl: URL!
-        DispatchQueue.global(qos: .background).async {
-            finalUrl = URL(string: convertedUrl)!
-        }
-        
-        return finalUrl
+        return URL(string: convertedUrl)!
     }
 }

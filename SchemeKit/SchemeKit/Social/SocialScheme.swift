@@ -37,13 +37,18 @@ struct SocialScheme {
         return installedSocialApps
     }
     
+    public static func listOfSocialAppsInstalled() -> [SocialNames] {
+        var installedSocialApps: [SocialNames] = []
+        SocialNames.allCases.forEach { (name) in
+            if isSocialAppInstalled(socialAppName: name) {
+                installedSocialApps.append(name)
+            }
+        }
+        return installedSocialApps
+    }
+    
     public static func getUrlForSocialApp(urlToConvert: String, socialAppName: SocialNames) -> URL {
         let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: SocialConstants.SocialSchemeList[socialAppName]!)
-        var finalUrl: URL!
-        DispatchQueue.global(qos: .background).async {
-            finalUrl = URL(string: convertedUrl)!
-        }
-        
-        return finalUrl
+        returnURL(string: convertedUrl)!
     }
 }
