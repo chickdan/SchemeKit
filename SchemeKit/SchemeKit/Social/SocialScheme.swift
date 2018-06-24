@@ -49,6 +49,6 @@ struct SocialScheme {
     
     public static func getUrlForSocialApp(urlToConvert: String, socialAppName: SocialNames) -> URL {
         let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: SocialConstants.SocialSchemeList[socialAppName]!)
-        returnURL(string: convertedUrl)!
+        return URL(string: convertedUrl)!
     }
 }
