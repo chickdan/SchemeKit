@@ -49,6 +49,11 @@
 		<string>opera</string>
 		<string>dolphin</string>
 		<string>brave</string>
+		<string>youtube</string>
+		<string>twitch</string>
+		<string>fb</string>
+		<string>instagram</string>
+		<string>twitter</string>
 	</array>
 </dict>
 </plist>
