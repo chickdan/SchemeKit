@@ -39,7 +39,7 @@ class SchemeKitDemoTests: XCTestCase {
     }
     
     func testListInstalledBrowser() {
-        let browserList = BrowserScheme.listOfBrowsersInstalled()
-        XCTAssertEqual(browserList, ["Safari", "Chrome", "Edge"])
+        let browserList: [BrowserNames] = BrowserScheme.listOfBrowsersInstalled()
+        XCTAssertEqual(browserList, [BrowserNames.safari, BrowserNames.chrome, BrowserNames.edge])
     }
 }
