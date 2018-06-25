@@ -19,7 +19,7 @@ internal struct SocialURLSchemes {
     static let twitter = "twitter"
 }
 
-enum SocialNames: String { //, CaseIterable
+public enum SocialNames: String { //, CaseIterable
     case facebook = "Facebook"
     case twitter = "Twitter"
     case instagram = "Instagram"

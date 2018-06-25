@@ -6,7 +6,7 @@
 //  CopyrigFoundationht © 2018 Daniel Chick. All rights reserved.
 //
 
-struct BrowserConstants {
+internal struct BrowserConstants {
     static let BrowserSchemeList = [BrowserNames.chrome : BroswerURLSchemes.chrome,
                                  BrowserNames.firefox : BroswerURLSchemes.firefox,
                                  BrowserNames.opera : BroswerURLSchemes.opera,

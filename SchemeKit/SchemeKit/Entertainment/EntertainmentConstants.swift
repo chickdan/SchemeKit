@@ -6,7 +6,7 @@
 //  Copyright © 2018 Daniel Chick. All rights reserved.
 //
 
-struct EntertainmentConstants {
+internal struct EntertainmentConstants {
     static let EntertainmentSchemeList = [EntertainmentNames.twitch : EntertainmentURLSchemes.twitch,
                                    EntertainmentNames.youtube : EntertainmentURLSchemes.youtube, ]
 }
@@ -17,7 +17,7 @@ internal struct EntertainmentURLSchemes {
     static let youtube = "youtube"
 }
 
-enum EntertainmentNames: String { //, CaseIterable
+public enum EntertainmentNames: String { //, CaseIterable
     case twitch = "Twitch"
     case youtube = "YouTube"
     
