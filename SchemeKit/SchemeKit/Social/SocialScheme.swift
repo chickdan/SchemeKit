@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SocialScheme {
+public struct SocialScheme {
     
     public static func isSocialAppInstalled(socialAppName: SocialNames) -> Bool {
         let socialAppUrl = URL(string: SocialConstants.SocialSchemeList[socialAppName]! + SocialURLSchemes.socialAppDetectorPath)
@@ -25,16 +25,6 @@ struct SocialScheme {
     
     public static func isInstagramInstalled() -> Bool {
         return isSocialAppInstalled(socialAppName: SocialNames.instagram)
-    }
-    
-    public static func listOfSocialAppsInstalled() -> [String] {
-        var installedSocialApps: [String] = []
-        SocialNames.allCases.forEach { (name) in
-            if isSocialAppInstalled(socialAppName: name) {
-                installedSocialApps.append(name.rawValue)
-            }
-        }
-        return installedSocialApps
     }
     
     public static func listOfSocialAppsInstalled() -> [SocialNames] {

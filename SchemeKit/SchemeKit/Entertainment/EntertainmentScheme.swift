@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct EntertainmentScheme {
+public struct EntertainmentScheme {
     public static func isEntertainmentAppInstalled(entertainmentAppName: EntertainmentNames) -> Bool {
         let entertainmentAppUrl = URL(string: EntertainmentConstants.EntertainmentSchemeList[entertainmentAppName]! + EntertainmentURLSchemes.entertainmentDetectorPath)
         return UIApplication.shared.canOpenURL(entertainmentAppUrl!)
@@ -20,16 +20,6 @@ struct EntertainmentScheme {
     
     public static func isYoutubeInstalled() -> Bool {
         return isEntertainmentAppInstalled(entertainmentAppName: EntertainmentNames.youtube)
-    }
-    
-    public static func listOfEntertainmentAppsInstalled() -> [String] {
-        var installedEntertainmentApps: [String] = []
-        EntertainmentNames.allCases.forEach { (name) in
-            if isEntertainmentAppInstalled(entertainmentAppName: name) {
-                installedEntertainmentApps.append(name.rawValue)
-            }
-        }
-        return installedEntertainmentApps
     }
     
     public static func listOfEntertainmentAppsInstalled() -> [EntertainmentNames] {

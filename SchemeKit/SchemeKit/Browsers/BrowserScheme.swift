@@ -29,16 +29,6 @@ public struct BrowserScheme {
         return UIApplication.shared.canOpenURL(browserUrl!)
     }
     
-    public static func listOfBrowsersInstalled() -> [String] {
-        var installedBrowsers: [String] = []
-        BrowserNames.allCases.forEach { (name) in
-            if isBrowserInstalled(browserName: name) {
-                installedBrowsers.append(name.rawValue)
-            }
-        }
-        return installedBrowsers
-    }
-    
     public static func listOfBrowsersInstalled() -> [BrowserNames] {
         var installedBrowsers: [BrowserNames] = []
         BrowserNames.allCases.forEach { (name) in
