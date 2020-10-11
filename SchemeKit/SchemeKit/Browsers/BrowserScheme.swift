@@ -10,23 +10,33 @@ import UIKit
 
 public struct BrowserScheme {
     public static func isBrowserInstalled(browserName: BrowserNames) -> Bool {
-        let browserUrl = URL(string: BrowserConstants.BrowserSchemeList[browserName]! + BroswerURLSchemes.browserDetectorPath)
-        return UIApplication.shared.canOpenURL(browserUrl!)
+        guard let scheme = BrowserConstants.BrowserSchemeList[browserName] else {
+            return false
+        }
+        
+        let appStringUrl = scheme + BroswerURLSchemes.browserDetectorPath
+        
+        guard let browserUrl = URL(string: appStringUrl) else {
+            return false
+        }
+        
+        return UIApplication.shared.canOpenURL(browserUrl)
     }
     
     public static func isChromeInstalled() -> Bool {
-        let browserUrl = URL(string: BrowserConstants.BrowserSchemeList[BrowserNames.chrome]! + BroswerURLSchemes.browserDetectorPath)
-        return UIApplication.shared.canOpenURL(browserUrl!)
+        return isBrowserInstalled(browserName: .chrome)
     }
     
     public static func isFirefoxInstalled() -> Bool {
-        let browserUrl = URL(string: BrowserConstants.BrowserSchemeList[BrowserNames.firefox]! + BroswerURLSchemes.browserDetectorPath)
-        return UIApplication.shared.canOpenURL(browserUrl!)
+        return isBrowserInstalled(browserName: .firefox)
     }
     
     public static func isEdgeInstalled() -> Bool {
-        let browserUrl = URL(string: BrowserConstants.BrowserSchemeList[BrowserNames.edge]! + BroswerURLSchemes.browserDetectorPath)
-        return UIApplication.shared.canOpenURL(browserUrl!)
+        return isBrowserInstalled(browserName: .edge)
+    }
+    
+    public static func isBraveInstalled() -> Bool {
+        return isBrowserInstalled(browserName: .brave)
     }
     
     public static func listOfBrowsersInstalled() -> [BrowserNames] {
@@ -39,8 +49,13 @@ public struct BrowserScheme {
         return installedBrowsers
     }
     
-    public static func getUrlForBrowser(urlToConvert: String, browserName: BrowserNames) -> URL {
-        let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: BrowserConstants.BrowserSchemeList[browserName]!)
-        return URL(string: convertedUrl)!
+    public static func getUrlForBrowser(urlToConvert: String, browserName: BrowserNames) -> URL? {
+        guard let scheme = BrowserConstants.BrowserSchemeList[browserName] else {
+            return nil
+        }
+        
+        let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: scheme)
+        
+        return URL(string: convertedUrl)
     }
 }

@@ -7,13 +7,15 @@
 //
 
 internal struct BrowserConstants {
-    static let BrowserSchemeList = [BrowserNames.chrome : BroswerURLSchemes.chrome,
-                                 BrowserNames.firefox : BroswerURLSchemes.firefox,
-                                 BrowserNames.opera : BroswerURLSchemes.opera,
-                                 BrowserNames.dolphin : BroswerURLSchemes.dolphin,
-                                 BrowserNames.brave : BroswerURLSchemes.brave,
-                                 BrowserNames.edge : BroswerURLSchemes.edge,
-                                 BrowserNames.safari : BroswerURLSchemes.safari, ]
+    static let BrowserSchemeList: [BrowserNames: String] = [
+        .chrome : BroswerURLSchemes.chrome,
+        .firefox : BroswerURLSchemes.firefox,
+        .opera : BroswerURLSchemes.opera,
+        .dolphin : BroswerURLSchemes.dolphin,
+        .brave : BroswerURLSchemes.brave,
+        .edge : BroswerURLSchemes.edge,
+        .safari : BroswerURLSchemes.safari,
+    ]
 }
 
 internal struct BroswerURLSchemes {
@@ -27,7 +29,7 @@ internal struct BroswerURLSchemes {
     static let safari = "https"
 }
 
-public enum BrowserNames: String { //, CaseIterable
+public enum BrowserNames: String, CaseIterable {
     case safari = "Safari"
     case chrome = "Chrome"
     case firefox = "Firefox"
@@ -35,6 +37,4 @@ public enum BrowserNames: String { //, CaseIterable
     case opera = "Opera"
     case dolphin = "Dolphin"
     case brave = "Brave"
-    
-    static let allCases = [safari, chrome, firefox, edge, opera, dolphin, brave]
 }

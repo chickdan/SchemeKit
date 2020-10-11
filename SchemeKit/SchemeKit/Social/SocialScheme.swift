@@ -11,20 +11,29 @@ import UIKit
 public struct SocialScheme {
     
     public static func isSocialAppInstalled(socialAppName: SocialNames) -> Bool {
-        let socialAppUrl = URL(string: SocialConstants.SocialSchemeList[socialAppName]! + SocialURLSchemes.socialAppDetectorPath)
-        return UIApplication.shared.canOpenURL(socialAppUrl!)
+        guard let scheme = SocialConstants.SocialSchemeList[socialAppName] else {
+            return false
+        }
+        
+        let appStringUrl = scheme + SocialURLSchemes.socialAppDetectorPath
+        
+        guard let socialAppUrl = URL(string: appStringUrl) else {
+            return false
+        }
+        
+        return UIApplication.shared.canOpenURL(socialAppUrl)
     }
     
     public static func isFacebookInstalled() -> Bool {
-        return isSocialAppInstalled(socialAppName: SocialNames.facebook)
+        return isSocialAppInstalled(socialAppName: .facebook)
     }
     
     public static func isTwitterInstalled() -> Bool {
-        return isSocialAppInstalled(socialAppName: SocialNames.twitter)
+        return isSocialAppInstalled(socialAppName: .twitter)
     }
     
     public static func isInstagramInstalled() -> Bool {
-        return isSocialAppInstalled(socialAppName: SocialNames.instagram)
+        return isSocialAppInstalled(socialAppName: .instagram)
     }
     
     public static func listOfSocialAppsInstalled() -> [SocialNames] {
@@ -37,8 +46,13 @@ public struct SocialScheme {
         return installedSocialApps
     }
     
-    public static func getUrlForSocialApp(urlToConvert: String, socialAppName: SocialNames) -> URL {
-        let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: SocialConstants.SocialSchemeList[socialAppName]!)
-        return URL(string: convertedUrl)!
+    public static func getUrlForSocialApp(urlToConvert: String, socialAppName: SocialNames) -> URL? {
+        guard let scheme = SocialConstants.SocialSchemeList[socialAppName] else {
+            return nil
+        }
+        
+        let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: scheme)
+        
+        return URL(string: convertedUrl)
     }
 }

@@ -7,8 +7,10 @@
 //
 
 internal struct EntertainmentConstants {
-    static let EntertainmentSchemeList = [EntertainmentNames.twitch : EntertainmentURLSchemes.twitch,
-                                   EntertainmentNames.youtube : EntertainmentURLSchemes.youtube, ]
+    static let EntertainmentSchemeList: [EntertainmentNames: String] = [
+        .twitch : EntertainmentURLSchemes.twitch,
+        .youtube : EntertainmentURLSchemes.youtube,
+    ]
 }
 
 internal struct EntertainmentURLSchemes {
@@ -17,9 +19,7 @@ internal struct EntertainmentURLSchemes {
     static let youtube = "youtube"
 }
 
-public enum EntertainmentNames: String { //, CaseIterable
+public enum EntertainmentNames: String, CaseIterable {
     case twitch = "Twitch"
     case youtube = "YouTube"
-    
-    static let allCases = [twitch, youtube]
 }

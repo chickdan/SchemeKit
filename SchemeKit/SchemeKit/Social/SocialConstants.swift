@@ -7,9 +7,11 @@
 //
 
 internal struct SocialConstants {
-    static let SocialSchemeList = [SocialNames.facebook : SocialURLSchemes.facebook,
-                                    SocialNames.instagram : SocialURLSchemes.instagram,
-                                    SocialNames.twitter : SocialURLSchemes.twitter, ]
+    static let SocialSchemeList: [SocialNames: String] = [
+        .facebook : SocialURLSchemes.facebook,
+        .instagram : SocialURLSchemes.instagram,
+        .twitter : SocialURLSchemes.twitter,
+    ]
 }
 
 internal struct SocialURLSchemes {
@@ -19,10 +21,8 @@ internal struct SocialURLSchemes {
     static let twitter = "twitter"
 }
 
-public enum SocialNames: String { //, CaseIterable
+public enum SocialNames: String, CaseIterable {
     case facebook = "Facebook"
     case twitter = "Twitter"
     case instagram = "Instagram"
-    
-    static let allCases = [facebook, twitter, instagram]
 }

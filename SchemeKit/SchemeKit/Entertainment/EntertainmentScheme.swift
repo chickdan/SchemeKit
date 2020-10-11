@@ -10,8 +10,17 @@ import UIKit
 
 public struct EntertainmentScheme {
     public static func isEntertainmentAppInstalled(entertainmentAppName: EntertainmentNames) -> Bool {
-        let entertainmentAppUrl = URL(string: EntertainmentConstants.EntertainmentSchemeList[entertainmentAppName]! + EntertainmentURLSchemes.entertainmentDetectorPath)
-        return UIApplication.shared.canOpenURL(entertainmentAppUrl!)
+        guard let scheme = EntertainmentConstants.EntertainmentSchemeList[entertainmentAppName] else {
+            return false
+        }
+        
+        let appStringUrl = scheme + EntertainmentURLSchemes.entertainmentDetectorPath
+        
+        guard let entertainmentAppUrl = URL(string: appStringUrl) else {
+            return false
+        }
+        
+        return UIApplication.shared.canOpenURL(entertainmentAppUrl)
     }
     
     public static func isTwitchInstalled() -> Bool {
@@ -32,8 +41,13 @@ public struct EntertainmentScheme {
         return installedEntertainmentApps
     }
     
-    public static func getUrlForEntertainmentApp(urlToConvert: String, entertainmentAppName: EntertainmentNames) -> URL {
-        let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: EntertainmentConstants.EntertainmentSchemeList[entertainmentAppName]!)
-        return URL(string: convertedUrl)!
+    public static func getUrlForEntertainmentApp(urlToConvert: String, entertainmentAppName: EntertainmentNames) -> URL? {
+        guard let scheme = EntertainmentConstants.EntertainmentSchemeList[entertainmentAppName] else {
+            return nil
+        }
+        
+        let convertedUrl = urlToConvert.replacingOccurrences(of: "https", with: scheme)
+        
+        return URL(string: convertedUrl)
     }
 }
