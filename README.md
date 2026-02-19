@@ -1,3 +1,6 @@
+> [!WARNING]
+> With the ability to set default browsers as of iOS 14 I no longer believe this is a helpful project. It will be archived but remain available for historical purposes.
+
 # SchemeKit
 SchemeKit is a simple API to provide url query schemes for launching third party applications.
 
